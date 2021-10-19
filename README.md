@@ -9,6 +9,7 @@ elephant42 (aka 🐘42) s firmware.
 ### Why don't you publish it under GPLv2&v3, the same as QMK?
 
 Because I want to drink beer with your treat. 🍺🍺🍺
+
 Don't worry! Beerware seems to be GPL compatible.
 
 https://fedoraproject.org/wiki/Licensing/Beerware
