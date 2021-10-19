@@ -6,7 +6,7 @@ elephant42 (aka 🐘42) s firmware.
 1. `qmk flash -kb elephant42 -km default`
     * or `qmk flash -kb elephant42 -km via`
 
-# Why don't you publish it under GPLv2&v3, the same as QMK?
+### Why don't you publish it under GPLv2&v3, the same as QMK?
 
 Because I want to drink beer with your treat. 🍺🍺🍺
 Don't worry! Beerware seems to be GPL compatible.
