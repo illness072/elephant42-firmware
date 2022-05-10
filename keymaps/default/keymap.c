@@ -140,7 +140,7 @@ void matrix_scan_user(void) {}
 void led_set_user(uint8_t usb_led) {}
 
 #ifdef OLED_ENABLE
-void oled_task_user(void) {
+bool oled_task_user(void) {
   if (is_keyboard_master()) {
     char disp[(21*4)+1] = {0};
     static char layer_names[_NUM_OF_LAYERS][10] = {"Default", "Lower", "Raise", "Adjust"};
@@ -165,5 +165,6 @@ void oled_task_user(void) {
       "\xcf\xd0\xd1\xd2\xd3\xc0\xc1\xc2\xc3\xc4\xc5\xc6\xc7\xc8\xc9\xca\xcb\xcc\xcd\xce\n";
     oled_write(logo, false);
   }
+  return false;
 }
 #endif
