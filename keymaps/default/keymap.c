@@ -142,22 +142,24 @@ void led_set_user(uint8_t usb_led) {}
 #ifdef OLED_ENABLE
 bool oled_task_user(void) {
   if (is_keyboard_master()) {
-    char disp[(21*4)+1] = {0};
     static char layer_names[_NUM_OF_LAYERS][10] = {"Default", "Lower", "Raise", "Adjust"};
     static char l1[] = "                \x94\x95\x96\x97";
-    static char l2[] = "                \xB4\xB5\xB6\xB7";
+    static char l2[] = "                 \xB4\xB5\xB6\xB7";
     static char r1[] = "                \x98\x99\x9A\x9B";
-    static char r2[] = "                \xB8\xB9\xBA\xBB";
+    static char r2[] = "                 \xB8\xB9\xBA\xBB";
     int space = kp % STEP;
     if (space > STEP / 2) space = STEP - space;
+    oled_write_P(PSTR("Layer: "), false);
+    oled_write_ln(layer_names[get_highest_layer(layer_state)], false);
+    oled_write_ln("", false);
     if (kp < STEP / 2) {
-      snprintf(disp, 84, "Layer: %s\n\n%s\n%s\n",
-               layer_names[get_highest_layer(layer_state)], l1 + space, l2 + space);
+      oled_write(l1 + space, false);
+      oled_write(l2, false);
     } else {
-      snprintf(disp, 84, "Layer: %s\n\n%s\n%s\n",
-               layer_names[get_highest_layer(layer_state)], r1 + space, r2 + space);
+      oled_write(r1 + space, false);
+      oled_write(r2, false);     
     }
-    oled_write(disp, false);
+    oled_write_ln("", false);
   } else {
     static char *logo = "\n"
       "\x8f\x90\x91\x92\x93\x80\x81\x82\x83\x84\x85\x86\x87\x88\x89\x8a\x8b\x8c\x8d\x8e\n"
