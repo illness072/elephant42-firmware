@@ -1,7 +1,6 @@
 #include QMK_KEYBOARD_H
 
 #ifdef OLED_ENABLE
-#include <stdio.h>
 #define STEP 32
 uint8_t kp = 0;
 #endif
@@ -157,7 +156,7 @@ bool oled_task_user(void) {
       oled_write(l2, false);
     } else {
       oled_write(r1 + space, false);
-      oled_write(r2, false);     
+      oled_write(r2, false);
     }
     oled_write_ln("", false);
   } else {
